@@ -7,7 +7,7 @@
 /// 4. If the result is itself transformable, recurse (up to DEPTH_LIMIT)
 /// 5. Handle `$$multi-props` wrapper → expand into multiple CSS declarations
 
-use crate::transformer::TransformerRegistry;
+use crate::transformer::{Transformer, TransformerRegistry};
 use crate::types::{Resolved, TransformerContext};
 use serde_json::Value;
 use std::collections::HashMap;
@@ -80,7 +80,7 @@ impl<'a> PropsResolver<'a> {
         transformer.transform(&resolved_inner, &ctx)
     }
 
-    fn resolve_inner(&self, _type_key: &str, inner: &Value, key: &str) -> Value {
+    fn resolve_inner(&self, type_key: &str, inner: &Value, key: &str) -> Value {
         match inner {
             Value::Object(obj) => {
                 let mut resolved = serde_json::Map::new();

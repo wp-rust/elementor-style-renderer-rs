@@ -1,4 +1,4 @@
-use crate::transformer::Transformer;
+use crate::transformer::{Transformer, str_field};
 use crate::types::{Resolved, TransformerContext};
 use serde_json::Value;
 

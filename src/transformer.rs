@@ -1,7 +1,7 @@
 /// `Transformer` trait — port of PHP `Transformer_Base`.
 /// Each implementation converts a resolved prop `Value` into a CSS string (or multi-props map).
 
-use crate::types::{Resolved, TransformerContext};
+use crate::types::{MultiProps, Resolved, TransformerContext};
 use serde_json::Value;
 
 pub trait Transformer: Send + Sync {
